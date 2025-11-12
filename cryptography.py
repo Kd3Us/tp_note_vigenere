@@ -44,7 +44,6 @@ def vigenere_uncipher(crypted_text, password):
 		uncrypted_text.append(cesar_uncipher(char, current_key))
 	return "".join(uncrypted_text)
 	
-		# return vigenere_cipher(crypted_text, "".join([chr(-ord(char)) for char in password]))
 
 
 
