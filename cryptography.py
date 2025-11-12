@@ -24,16 +24,33 @@ def hack_cesar_cipher(crypted_text, alphabet):
 
 
 def vigenere_cipher(text, password):
+
 	list_of_keys = [ord(char) for char in password]
+
 	crypted_text = []
+
 	for index, char in enumerate(text):
 
+
+
 		current_key = list_of_keys[index % len(list_of_keys)]
+
 		crypted_text.append(chr((ord(char) + current_key) % 1_114_112))
+
 	return "".join(crypted_text)
 
+
+
 def vigenere_uncipher(crypted_text, password):
-		return vigenere_cipher(crypted_text, "".join([chr(-ord(char)) for char in password]))
+
+	list_of_keys = [ord(char) for char in password]
+	uncrypted_text = []
+	for index, char in enumerate(crypted_text):
+		current_key = list_of_keys[index % len(list_of_keys)]
+		uncrypted_text.append(chr((ord(char) - current_key) % 1_114_112))
+	return "".join(uncrypted_text)
+	
+		# return vigenere_cipher(crypted_text, "".join([chr(-ord(char)) for char in password]))
 
 	# list_of_keys = [ord(char) for char in password]
 	# uncrypted_text = []
@@ -63,6 +80,12 @@ def vigenere_uncipher(crypted_text, password):
 
 
 if __name__ == "__main__":
+	vigenere_password = "cle"
+	message = "le chocolat est bon"
+	crypted_text = vigenere_cipher(message, vigenere_password) # exo 4
+	print(crypted_text)
+	initial_message = vigenere_uncipher(crypted_text, vigenere_password) # exo 5
+	print(initial_message == message)
 # 	message = "le chocolat est bon"
 
 # 	crypted_text = cesar_cipher(message, 12) # exo 1
