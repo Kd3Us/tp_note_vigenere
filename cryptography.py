@@ -32,6 +32,15 @@ def vigenere_cipher(text, password):
 		crypted_text.append(chr((ord(char) + current_key) % 1_114_112))
 	return "".join(crypted_text)
 
+def vigenere_uncipher(crypted_text, password):
+		return vigenere_cipher(crypted_text, "".join([chr(-ord(char)) for char in password]))
+
+	# list_of_keys = [ord(char) for char in password]
+	# uncrypted_text = []
+	# for index, char in enumerate(crypted_text):
+	# 	current_key = list_of_keys[index % len(list_of_keys)]
+	# 	uncrypted_text.append(chr((ord(char) - current_key) % 1_114_112))
+	# return "".join(uncrypted_text)
 
 
 
@@ -63,4 +72,3 @@ if __name__ == "__main__":
 # 	print(initial_message == message)
 
 # 	hack_cesar_cipher(crypted_text, alphabet=string.printable) # exo3
-
