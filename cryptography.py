@@ -27,7 +27,10 @@ def vigenere_cipher(text, password):
 	list_of_keys = [ord(char) for char in password]
 	crypted_text = []
 	for index, char in enumerate(text):
-		current_key = 
+
+		current_key = list_of_keys[index % len(list_of_keys)]
+		crypted_text.append(chr((ord(char) + current_key) % 1_114_112))
+	return "".join(crypted_text)
 
 
 
