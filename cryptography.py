@@ -72,3 +72,12 @@ if __name__ == "__main__":
 # 	print(initial_message == message)
 
 # 	hack_cesar_cipher(crypted_text, alphabet=string.printable) # exo3
+
+	vigenere_password = "cle"
+	message = "le chocolat est bon"
+
+	crypted_text = vigenere_cipher(message, vigenere_password) # exo 4
+	print(crypted_text)
+
+	initial_message = vigenere_uncipher(crypted_text, vigenere_password) # exo 5
+	print(initial_message == message)
